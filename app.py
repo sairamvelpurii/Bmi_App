@@ -7,96 +7,95 @@ Original file is located at
     https://colab.research.google.com/drive/1a-k8N0TmORahOkiGG1cHnQIiPM3vBnmU
 """
 
-# Commented out IPython magic to ensure Python compatibility.
-# %%writefile app.py
-# import streamlit as st
-# import pandas as pd
-# 
-# st.title("BMI Calculator App (Using Pandas)")
-# 
-# st.write("Enter your details")
-# 
-# # User Inputs
-# name = st.text_input("Enter Name")
-# 
-# age = st.number_input("Enter Age", min_value=1, max_value=120)
-# 
-# height = st.number_input("Enter Height (meters)", min_value=0.5, max_value=2.5)
-# 
-# weight = st.number_input("Enter Weight (kg)", min_value=10.0, max_value=200.0)
-# 
-# 
-# # Create DataFrame
-# data = pd.DataFrame({
-#     "Name":[name],
-#     "Age":[age],
-#     "Height":[height],
-#     "Weight":[weight]
-# })
-# 
-# 
-# if st.button("Calculate BMI"):
-# 
-#     # BMI Calculation using Pandas
-#     data["BMI"] = data["Weight"] / (data["Height"]**2)
-# 
-#     bmi = data["BMI"][0]
-# 
-#     st.write("### User Details")
-#     st.dataframe(data)
-# 
-# 
-#     # BMI Categories
-# 
-#     if bmi < 18.5:
-# 
-#         st.error("Category: Underweight")
-# 
-#         st.write("### Meal Plan")
-#         st.write("- Milk")
-#         st.write("- Eggs")
-#         st.write("- Nuts")
-# 
-#         st.write("### Exercise")
-#         st.write("- Yoga")
-#         st.write("- Walking")
-# 
-# 
-#     elif bmi < 25:
-# 
-#         st.success("Category: Normal")
-# 
-#         st.write("### Meal Plan")
-#         st.write("- Fruits")
-#         st.write("- Vegetables")
-#         st.write("- Protein")
-# 
-#         st.write("### Exercise")
-#         st.write("- Running")
-#         st.write("- Gym")
-# 
-# 
-#     elif bmi < 30:
-# 
-#         st.warning("Category: Overweight")
-# 
-#         st.write("### Meal Plan")
-#         st.write("- Salad")
-#         st.write("- Oats")
-# 
-#         st.write("### Exercise")
-#         st.write("- Jogging")
-#         st.write("- Cycling")
-# 
-# 
-#     else:
-# 
-#         st.error("Category: Obese")
-# 
-#         st.write("### Meal Plan")
-#         st.write("- Low Carb Diet")
-#         st.write("- Vegetables")
-# 
-#         st.write("### Exercise")
-#         st.write("- Walking")
-#         st.write("- Swimming")
+%%writefile app.py
+import streamlit as st
+import pandas as pd
+
+st.title("BMI Calculator App (Using Pandas)")
+
+st.write("Enter your details")
+
+# User Inputs
+name = st.text_input("Enter Name")
+
+age = st.number_input("Enter Age", min_value=1, max_value=120)
+
+height = st.number_input("Enter Height (meters)", min_value=0.5, max_value=2.5)
+
+weight = st.number_input("Enter Weight (kg)", min_value=10.0, max_value=200.0)
+
+
+# Create DataFrame
+data = pd.DataFrame({
+    "Name":[name],
+    "Age":[age],
+    "Height":[height],
+    "Weight":[weight]
+})
+
+
+if st.button("Calculate BMI"):
+    
+    # BMI Calculation using Pandas
+    data["BMI"] = data["Weight"] / (data["Height"]**2)
+
+    bmi = data["BMI"][0]
+
+    st.write("### User Details")
+    st.dataframe(data)
+
+    
+    # BMI Categories
+    
+    if bmi < 18.5:
+        
+        st.error("Category: Underweight")
+        
+        st.write("### Meal Plan")
+        st.write("- Milk")
+        st.write("- Eggs")
+        st.write("- Nuts")
+        
+        st.write("### Exercise")
+        st.write("- Yoga")
+        st.write("- Walking")
+
+        
+    elif bmi < 25:
+        
+        st.success("Category: Normal")
+        
+        st.write("### Meal Plan")
+        st.write("- Fruits")
+        st.write("- Vegetables")
+        st.write("- Protein")
+        
+        st.write("### Exercise")
+        st.write("- Running")
+        st.write("- Gym")
+
+
+    elif bmi < 30:
+        
+        st.warning("Category: Overweight")
+        
+        st.write("### Meal Plan")
+        st.write("- Salad")
+        st.write("- Oats")
+        
+        st.write("### Exercise")
+        st.write("- Jogging")
+        st.write("- Cycling")
+
+
+    else:
+        
+        st.error("Category: Obese")
+        
+        st.write("### Meal Plan")
+        st.write("- Low Carb Diet")
+        st.write("- Vegetables")
+        
+        st.write("### Exercise")
+        st.write("- Walking")
+        st.write("- Swimming")
